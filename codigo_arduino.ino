@@ -1,16 +1,17 @@
 #include <TaskScheduler.h>
 #include <NewPing.h>
 
-NewPing sonar1(TRIGGER_PIN1, ECHO_PIN1, MAX_DISTANCE);  // Crear un objeto NewPing Ultrasonido
-
 #define TRIGGER_PIN1 26  // Pin de salida del ultrasonido (conectar al pin TRIG del sensor)
 #define ECHO_PIN1 27     // Pin de entrada del ultrasonido (conectar al pin ECHO del sensor)
+#define MAX_DISTANCE 200  // Distancia máxima de medición en centímetros Ultrasonido
+NewPing sonar1(TRIGGER_PIN1, ECHO_PIN1, MAX_DISTANCE);  // Crear un objeto NewPing Ultrasonido
+
 void readUltrasonido();
 
 //Creamos el scheduler
 Scheduler scheduler;
 //Creamos los threads
-Task task_botella(50, TASK_FOREVER, &readUltrasonicBotellaTask, &scheduler, true);
+Task task_botella(50, TASK_FOREVER, &readUltrasonido, &scheduler, true);
 void setup() {
 
   Serial.begin(9600);
@@ -20,8 +21,12 @@ void setup() {
   scheduler.startNow();
 }
 
+void loop() {
+  scheduler.execute();
+}
+
 //Thread para ver si hay botella
-void readUltrasonicBotellaTask() {
+void readUltrasonido() {
   unsigned int distanciaObjeto = sonar1.ping_cm();
-  serial.println(distanciaObjeto);
+  Serial.println(distanciaObjeto);
 }
