@@ -1,4 +1,5 @@
 #include <TaskScheduler.h>
+#include <NewPing.h>
 
 NewPing sonar1(TRIGGER_PIN1, ECHO_PIN1, MAX_DISTANCE);  // Crear un objeto NewPing Ultrasonido
 
