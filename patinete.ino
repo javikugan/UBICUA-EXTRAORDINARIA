@@ -14,13 +14,13 @@
 
 
 // Configuración de red WiFi
-const char* ssid = "tetorras";        // Cambia por tu SSID de WiFi
-const char* password = "r655882372";  // Cambia por tu clave de WiFi
+const char* ssid = "patinete";        // Cambia por tu SSID de WiFi
+const char* password = "patinet3030";  // Cambia por tu clave de WiFi
 
 // Configuración de MQTT
 const String idPatinete = "1";
-const char* mqtt_server = "192.168.1.137";  // Cambia por la dirección de tu servidor MQTT
-const int mqtt_port = 1883;                 // Puerto MQTT (por defecto es 1883)
+const char* mqtt_server = "homasromrod.duckdns.org";  // Cambia por la dirección de tu servidor MQTT
+const int mqtt_port = 55000;                 // Puerto MQTT (por defecto es 1883)
 const char* mqtt_user = "ubicua";
 const char* mqtt_password = "ubicua";
 
